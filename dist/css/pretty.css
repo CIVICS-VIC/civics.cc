@@ -1,0 +1,12 @@
+/* src/css/pretty.less */
+body {
+  background: #333333;
+  color: black;
+  width: 65px;
+}
+button {
+  background: #8BC5FF;
+}
+div {
+  background: #6F3596;
+}

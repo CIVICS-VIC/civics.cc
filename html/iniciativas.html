@@ -1,0 +1,130 @@
+<div class="nav navbar-fixed-top"> 
+  <ul id="two" class="navbar-header">
+     <li class="navbar-header-mbl">
+        <a class="navbar-brand" href="./#/">
+          <img src="./img/CIVICS_logo.svg" alt="logo">
+        </a>        
+      </li>
+    <ul class="navbar-tabs">
+      <li ng-click="unsetInfoLeyenda()" class="hd-menu-elm agenda">
+        <a class="hd-main" href="./agenda/{{selectedprop.label}}">AGENDA</a>
+      </li>
+      <li class="hd-menu-elm iniciativas act">
+        <a class="hd-main" href="">INICIATIVAS</a>
+      </li>
+      <ul class="conect-ini">
+        <li><a href="#"><span class="icon-menu-login"></span> </a></li>
+        <li><a href="#"><span class="icon-menu-idioma"></span> </a></li>
+      </ul>
+    </ul>
+  </ul>
+  <ul id="hd-menu-iniciativas">
+    <li class="hd-menu-elm filter-tema">
+      <div class="hd-menu-elm-main" ng-click="unsetSelectedTopic()"><i class="icon-menu-topic"></i><span class= "nav-title">TEMA</span></div>
+      <ul class="hd-menu-2">
+        <li ng-repeat="topic in categ | filter:'topic'" ng-click="setSelectedTopic(topic); activarSeleccionMenu();" ng-class="activeSelection; desactivarOpcion(topic)" ng-cloak="">
+          <div class="circ" style="background:{{topic.iconColor}};" ></div>
+          {{topic.label | uppercase}}
+        </li>
+      </ul>
+    </li>
+    <li class="hd-menu-elm filter-espacio">
+      <div class="hd-menu-elm-main" ng-click="unsetSelectedSpace()"><i class="icon-menu-space"></i><span class= "nav-title">ESPACIO</span></div>
+      <ul class="hd-menu-2">
+        <li ng-repeat="space in categ | filter:'space'" class= "ng-scope activeSelection" ng-click="setSelectedSpace(space);  activarSeleccionMenu()" ng-class="desactivarOpcion(space)" ng-cloak="">
+          <div class="iconoMontado">
+            <div class="circ" ></div>            
+            <div class="icono">
+              <i class="{{asignaIconoMenu(space.label)}}"></i>
+            </div>
+          </div>
+          <span>{{space.label | uppercase}}</span>
+        </li>
+      </ul>
+    </li>
+    <li class="hd-menu-elm filter-agente">
+      <div class="hd-menu-elm-main" ng-click="unsetSelectedAgent()"><i class="icon-menu-agent"></i><span class= "nav-title">AGENTE</span></div>
+      <ul class="hd-menu-2">
+        <li ng-repeat="agent in categ | filter: 'agent'" class= "ng-scope activeSelection" ng-click="setSelectedAgent(agent); activarSeleccionMenu()" ng-class="desactivarOpcion(agent)" ng-cloak=""><a href=""><i class="{{asignaPelucaMenu(agent.label)}}"></i>{{agent.label | uppercase}}</a></li>
+      </ul>
+    </li>
+    <li class="hd-menu-elm add-ini" ng-click="unsetMapList();unsetInfoLeyenda();"><a class ="hd-menu-elm-main" href="#/formulario/iniciativas/{{setSelectedCity}}"><i class="icon-menu-add"></i><span class= "nav-title">AÑADIR</span></a></li>
+  </ul>  
+</div>
+<div id="tool-bar" nav navbar-fixed-top>
+  <a class="marcador">Nº DE INICIATIVAS: {{moon.length}}</a>
+  <ul class="nav navbar-toolbar">
+    <li ng-click="alternateMap()"><a href="" alt="mostrar vista de mapa"><i class="icon-tool-map"></i></a></li>
+    <li ng-click="alternateList()"><a href="" alt="mostrar lista"><i class="icon-tool-list"></i></a></li>
+    <li><a href="#"><i class="icon-tool-download"></i></a></li>
+    <li><a href="#"><i class="icon-tool-share"></i></a></li>
+  </ul>
+</div>
+<div id="sidebar" ng-class="activeSidebar" ng-controller="SidebarIniController">
+  <div class="nav cabecera">
+    <h4>{{selectedIni.name | uppercase}}</h4>
+    <button class="hidebtn" ng-click="openCloseSidebar()"><i class="icon-menu-close"></i></button>
+  </div>
+  <ul class="contenido">
+    <div class="mitadarriba">
+      <li class="foto">
+        <img src="./img/iniciativas/nofoto.svg">
+      </li>    
+      <li class="categ">
+        <div class="iconoMontado">
+          <div class="peluca" style="color:{{asignaColor(selectedIni.topic)}}">  
+            <i class="{{asignaPeluca(selectedIni.agent)}}"></i>
+          </div>
+          <div class= "circ"></div>
+          <div class="icono">
+            <i class="{{asignaIcono(selectedIni.space)}}"></i>
+          </div>
+        </div>
+        <h3 class="rotulo">{{selectedIni.topic}}, {{selectedIni.space}}, {{selectedIni.agent}}</h3>      
+      </li>
+    </div>    
+    
+    <div class="ini-desc">
+      <p>{{selectedIni.descript}}</p>
+    </div>
+    <ul class="redessociales">
+      <li class="iconfacebook" ng-class="iconfacebook"><a href="{{selectedIni.facebook}}" target="_blank"><i class="icon-share-facebook"></i></a></li>
+      <li class="icontwitter" ng-class="icontwitter"><a href="https://twitter.com/{{selectedIni.twitter}}" target="_blank"><i class="icon-share-twitter"></i></a></li>
+      <li class="iconyoutube" ng-class="iconyoutube"><i class="icon-share-youtube"></i></li>
+    </ul>
+    <ul class="contacto">
+      <li class="ini-address"><i class="icon-sidebar-address"></i>{{selectedIni.address}}</li>
+      <li class="iconweb" ng-class="iconweb"><a href="{{selectedIni.web}}" target="_blank"> <i class="icon-share-web"></i>{{selectedIni.web}}</li></a>
+      <li class="iconmail" ng-class="iconmail"><i class="icon-share-mail"></i>{{selectedIni.email}}</li>
+    </ul>
+  </ul>
+</div>
+ 
+<div id="iniciativas-list" ng-class="activeList" > 
+  <ul vs-repeat="5" class="virtualscrll">
+    
+    <li class="ficha" ng-repeat="ini in markers | filterBy: ['topic']: selectedtopic.label | filterBy: ['space']: selectedspace.label | filterBy:['agent']: selectedagent.label | orderBy:ident as moon" ng-click="setSelectedIni(ini); openSidebar();">
+    
+    <!--
+    <li class="ficha" ng-repeat="ini in geojsonIniciativas.data.| filterMultiple:{f6:selectedtopic.label,f7:selectedspace.label,f8:selectedagent.label} as moon" ng-click="setSelectedIni(ini); openSidebar();">
+    -->
+      <div class="ficha">
+          <img src="./img/iniciativas/1255.jpg">
+        <div class="imagen">
+          <div class="icono">
+            {{agent.icono | filter: ini.space}}
+          </div>
+        </div>      
+        <div class ="letrero">
+          <h2><a  href="">{{ini.name | truncate: 24:'...'}}</a></h2>
+          <h2>{{ini.city}}, {{ini.country}}</h2>
+        </div>
+      </div>      
+    </li>
+  </ul> 
+</div>
+
+<div id="mapIni" ng-class="activeMap">
+    <leaflet width="100%" height="84%" lf-center="world" controls="controls" event-broadcast="events" watch-options="watchOptions" layers="layers" markers="moon" icon="icon"></leaflet>
+  <button type="button" ng-click="toggleLayer()" alt="alterna mapa base"><i class="icon-map-layers"></i>  </button>
+</div>

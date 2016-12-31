@@ -1,0 +1,80 @@
+<div class="navbar-fixed-top" ng-controller="MenuHomeController as menuhome">
+  <div id="one" class="navbar-header">
+    <div class="navbar-header-mbl">
+      <li class="navbar-brand-mbl" href="./">
+        <a href="./#/"><img src="./img/logo_portada.svg" alt="logotipo de CIVICS"></a>
+      </li>
+      <ul class="conect-mbl">
+        <li ng-click="unsetInfoLeyenda()"><a href="#"><span class="icon-menu-login"></span> </a></li>
+        <li><a href="#"><span class="icon-menu-idioma"></span> </a></li>
+      </ul>
+    </div>
+    <ul id="hd-menu-place">
+      <li class="navbar-brand">
+        <a href="./#/"><img src="./img/logo_portada.svg" alt="logotipo de CIVICS"></a>
+      </li>     
+      <li class="hd-menu-elm agenda">
+        <a href="#" class="hd-main">AGENDA</a>
+        <ul class="hd-menu-2">
+          <li ng-repeat="countr in menuhome.list() | unique: 'properties.country' | orderBy:'properties.country'">
+          <a class="hd-menu-elm-main" href="">{{countr.properties.country | uppercase}}</a>
+            <ul class="hd-menu-3">
+              <li ng-repeat="city in menuhome.list() | filter:countr.properties.country | orderBy:'properties.city'" ng-click="unsetInfoLeyenda()" ng-class="{selected: city == selectedcity}" ng-cloak="">
+                <a href="#/agenda/{{city.properties.label}}">{{city.properties.label}}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="hd-menu-elm iniciativas">
+        <div href="#" class="hd-main">INICIATIVAS</div>
+        <ul class="hd-menu-2">
+          <li ng-repeat="countr in menuhome.list() | omit:paisvacio | unique: 'properties.country' | orderBy:'properties.country'">
+          <div class="hd-menu-elm-main" href="">{{countr.properties.country | uppercase}}</div>
+            <ul class="hd-menu-3">
+              <li ng-repeat="city in menuhome.list() | filter:countr.properties.country | orderBy:'properties.city'" ng-click="unsetInfoLeyenda()" ng-class="{selected: city == selectedcity}"  ng-cloak="">
+                <a href="#/iniciativas/{{city.properties.label}}">{{city.properties.label}}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <ul class="conect-big">
+        <li ng-click="unsetInfoLeyenda()"><a href="#"><span class="icon-menu-login"></span> </a></li>
+        <li><a href="#"><span class="icon-menu-idioma"></span> </a></li>
+      </ul>
+    </ul>
+  </div>
+</div>
+<div class="homecontainer">
+  <div id="mapid" ng-class="activeMap" ng-controller="MapController as mapctrl">
+    <leaflet width="100%" height="78%" height="480px" defaults="defaults" event-broadcast="events" layers="layers" markers="markers" lf-center="world"></leaflet> 
+  <button class="icon-map-layers" type="button" ng-click="toggleLayer()" alt="alterna mapa base"></button>
+
+  </div>
+  <div id="curated-list" ng-controller="iniciativasCuradasController as curated">
+    <div class="next"><a href=""><i class="icon-scroll"></i></a></div>   
+    <h3>- INICIATIVAS DESTACADAS -</h3> 
+    <ul class="virtualscrllhome">    
+      <li class="ficha" ng-repeat="ini in curatedini.data" ng-click="setSelectedIni(ini); openSidebar();">
+      <div class="ficha">
+        <img src="./img/iniciativas/1255.jpg">
+          <div class="imagen">
+            <div class="icono">
+              {{agent.icono | filter: ini.properties.space}}
+            </div>
+          </div>      
+          <div class ="letrero">
+            <h2><a  href="">{{ini.properties.name | truncate: 24:'...'}}</a></h2>
+            <h2>{{ini.properties.city}}, {{ini.properties.country}}</h2>
+          </div>
+        </div>      
+      </li>
+    </ul> 
+  </div>
+</div>  
+     
+
+
+    
+     
