@@ -1,0 +1,33 @@
+      .share-menu-elm{
+	      position: relative;
+      }      
+      .share-menu-elm .hd-menu-2{
+        overflow: auto;
+        line-height: 34px;      
+        font-size: 1em;
+        text-align: right;    
+        position: absolute;
+	z-index: -9999;
+	opacity: 0;
+        right: 0;
+        top: 0;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+	display: table;
+        }
+	.hd-menu-2 li {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0 5px;
+	background-color: #ffb5f2;
+	}
+	.share-menu-elm:hover .hd-menu-2 {
+		opacity: 1;
+		z-index: 399;
+		background-color: white;
+	}
+	.hd-menu-2 li a:hover {
+		color: #fff;
+	}

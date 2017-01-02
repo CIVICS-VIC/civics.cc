@@ -57,7 +57,13 @@
     <li ng-click="alternateMap()"><a href="" alt="mostrar vista de mapa"><i class="icon-tool-map"></i></a></li>
     <li ng-click="alternateList()"><a href="" alt="mostrar lista"><i class="icon-tool-list"></i></a></li>
     <li><a href="#"><i class="icon-tool-download"></i></a></li>
-    <li><a href="#"><i class="icon-tool-share"></i></a></li>
+    <li class="share-menu-elm">
+	    <i class="icon-tool-share"></i>
+	    <ul class="hd-menu-2">
+		    <li><a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank"><i class="icon-share-facebook"></i></a></li>
+		    <li><a href="https://twitter.com/intent/tweet" target="_blank"><i class="icon-share-twitter"></i></a></li>
+	    </ul>
+    </li>
   </ul>
 </div>
 <div id="sidebar" ng-class="activeSidebar" ng-controller="SidebarIniController">
