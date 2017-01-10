@@ -220,7 +220,7 @@ civicsApp.controller("MapController", ['ciudadesService', 'leafletMarkerEvents',
                 lat: ap.geometry.coordinates[1],
                 lng: ap.geometry.coordinates[0],
                 label: {
-                    message: ap.properties.label
+                    message: ap.properties.label + '<br />' +ap.properties.country + '<br />' +ap.properties.initiatives + ' iniciativas'
                 },               
                 icon: {
                     type: 'div',
