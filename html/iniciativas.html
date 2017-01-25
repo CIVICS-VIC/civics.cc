@@ -48,7 +48,7 @@
         <li ng-repeat="agent in categ | filter: 'agent'" class= "ng-scope activeSelection" ng-click="setSelectedAgent(agent); activarSeleccionMenu()" ng-class="desactivarOpcion(agent)" ng-cloak=""><a href=""><i class="{{asignaPelucaMenu(agent.label)}}"></i>{{agent.label | uppercase}}</a></li>
       </ul>
     </li>
-    <li class="hd-menu-elm add-ini" ng-click="unsetMapList();unsetInfoLeyenda();"><a class ="hd-menu-elm-main" href="#/formulario/iniciativas/{{setSelectedCity}}"><i class="icon-menu-add"></i><span class= "nav-title">AÑADIR</span></a></li>
+    <li class="hd-menu-elm add-ini" ng-click="unsetMapList();unsetInfoLeyenda();"><a class ="hd-menu-elm-main" href="/iniciativas/formulario?city={{setSelectedCity}}"><i class="icon-menu-add"></i><span class= "nav-title">AÑADIR</span></a></li>
   </ul>  
 </div>
 <div id="tool-bar" nav navbar-fixed-top>

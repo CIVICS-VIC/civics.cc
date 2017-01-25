@@ -1,0 +1,53 @@
+/*
+ * Posicion de la caja de todo el mapa
+ * # ID
+ * . clase
+*/
+
+#contact-form .gllpLatlonPicker	{
+	width: inherit; 
+	padding:0 ;
+	margin: 0px 0;
+	border: 0;
+ 
+}
+
+
+.gllpMap	{ 
+	width: inherit; 
+	height: 250px; 
+}
+.gllpSearchButton{
+	
+}
+
+.gllMapValues {
+		
+}
+.gllpLatitude{
+	width: 60px !important;
+	margin: 0px 5px 0px 10px;
+}
+.gllpLongitude{
+	width: 60px !important;
+	margin: 0px 5px 0px 10px;
+}
+.gllpZoom{
+	width: 60px !important;
+	margin: 0px 5px;
+}
+
+.gllpUpdateButton{
+	clear: both;
+	margin-left: auto;
+    margin-right: auto;
+	width: 450px !important;
+	
+	
+	
+}
+/* If the map DIV doesn't have a size set up, it won't appear on the page */
+
+
+
+
