@@ -6,9 +6,12 @@
 	/*************************************************************************************************
 	 * Campos cartoDB
 	 *************************************************************************************************/
-	 
+
+	// CARTO.COM CREDENTIALS 
+	require_once('../../config.php');
+
+
 	 //COMMON DATA
-	 
 	 $ini_table_name = 'iniciativas_localhost';
 	 
 	 
@@ -16,11 +19,7 @@
 	 $cartodb_user_ch = '';
 	 $cartodb_api_key_ch = '';
 	 
-	 
-	 //VIC CARTODB DATA
-	 $cartodb_user_vic = 'mappemad';
-	 $cartodb_api_key_vic = '2dec1701cc749e00b7cdb86438234b0a11081408';
-	 
+ 
 	 //INICIATIVAS
 	 //nombre de variable = nombre de campo en la tabla de cartodb
 		$cartodb_ini_field_cartodb_id= 'cartodb_id';
