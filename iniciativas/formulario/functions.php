@@ -10,38 +10,29 @@
 	// CARTO.COM CREDENTIALS 
 	require_once('../../config.php');
 
+	//INICIATIVAS
+	//nombre de variable = nombre de campo en la tabla de cartodb
+	$cartodb_ini_field_cartodb_id= 'cartodb_id';
+	$cartodb_ini_field_ini_id= 'ini_id';
+	$cartodb_ini_field_the_geom= 'the_geom';
+	$cartodb_ini_field_created_at= 'created_at';
+	$cartodb_ini_field_updated_at= 'updated_at';
+	$cartodb_ini_field_ini_name= 'ini_name';
+	$cartodb_ini_field_ini_descri= 'ini_descri';
+	$cartodb_ini_field_ini_topic= 'ini_topic';
+	$cartodb_ini_field_ini_agent= 'ini_agent';
+	$cartodb_ini_field_ini_space= 'ini_space';
+	$cartodb_ini_field_ini_mail= 'ini_mail';
+	$cartodb_ini_field_ini_web= 'ini_web';
+	$cartodb_ini_field_ini_facebook= 'ini_facebook';
+	$cartodb_ini_field_ini_twitter= 'ini_twitter';
+	$cartodb_ini_field_ini_addres= 'ini_addres';
+	$cartodb_ini_field_ini_city= 'city';
+	$cartodb_ini_field_map_lat= 'lat';
+	$cartodb_ini_field_map_lon= 'lon';
 
-	 //COMMON DATA
-	 $ini_table_name = 'iniciativas_localhost';
-	 
-	 
-	 //ALTERNATIVE CARTODB DATA
-	 $cartodb_user_ch = '';
-	 $cartodb_api_key_ch = '';
-	 
- 
-	 //INICIATIVAS
-	 //nombre de variable = nombre de campo en la tabla de cartodb
-		$cartodb_ini_field_cartodb_id= 'cartodb_id';
-		$cartodb_ini_field_ini_id= 'ini_id';
-		$cartodb_ini_field_the_geom= 'the_geom';
-		$cartodb_ini_field_created_at= 'created_at';
-		$cartodb_ini_field_updated_at= 'updated_at';
-		$cartodb_ini_field_ini_name= 'ini_name';
-		$cartodb_ini_field_ini_descri= 'ini_descri';
-		$cartodb_ini_field_ini_topic= 'ini_topic';
-		$cartodb_ini_field_ini_agent= 'ini_agent';
-		$cartodb_ini_field_ini_space= 'ini_space';
-		$cartodb_ini_field_ini_mail= 'ini_mail';
-		$cartodb_ini_field_ini_web= 'ini_web';
-		$cartodb_ini_field_ini_facebook= 'ini_facebook';
-		$cartodb_ini_field_ini_twitter= 'ini_twitter';
-		$cartodb_ini_field_ini_addres= 'ini_addres';
-		$cartodb_ini_field_ini_city= 'city';
-		$cartodb_ini_field_map_lat= 'lat';
-		$cartodb_ini_field_map_lon= 'lon';
-		
-	/*************************************************************************************************
+
+	 	/*************************************************************************************************
 	 * FUNCTIONS
 	 *************************************************************************************************/
 	
